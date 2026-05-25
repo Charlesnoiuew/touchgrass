@@ -54,25 +54,14 @@ export default function App() {
     return () => io.disconnect();
   }, []);
 
-  async function handleNewsletter(e: React.FormEvent) {
+  function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (nlStatus === 'loading') return;
     setNlStatus('loading');
-    try {
-      await fetch('https://app.hive.co/api/signup_widget/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          swid: 14705,
-          email: nlEmail,
-          first_name: nlFirst,
-          last_name: nlLast,
-          segment: 'Newsletter - Homepage',
-        }),
-      });
-    } catch (e) { void e; }
-    setNlStatus('success');
-    setNlFirst(''); setNlLast(''); setNlEmail('');
+    (window as any).HIVE_SDK?.('submitSignupForm', e.currentTarget, () => {
+      setNlStatus('success');
+      setNlFirst(''); setNlLast(''); setNlEmail('');
+    });
   }
 
   return (
@@ -250,24 +239,29 @@ export default function App() {
           {nlStatus === 'success' ? (
             <div className="nl-success">You're in! We'll keep you posted.</div>
           ) : (
-            <form className="nl-form" onSubmit={handleNewsletter}>
+            <form className="nl-form hive-signup-form" onSubmit={handleNewsletter}>
+              <input data-HIVE-FORM-FIELD="swid" type="hidden" value="14705" />
+              <input data-HIVE-FORM-FIELD="addToSegment" type="hidden" value="Newsletter - Homepage" />
+              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                <input type="text" data-HIVE-FORM-FIELD="areUReal" tabIndex={-1} defaultValue="" />
+              </div>
               <p className="nl-form-label">Name</p>
               <div className="nl-name-row">
                 <div className="nl-field">
                   <label className="nl-label">First Name<span className="nl-req">*</span></label>
-                  <input className="nl-input" type="text" value={nlFirst} onChange={e => setNlFirst(e.target.value)} required placeholder="First" />
+                  <input className="nl-input" data-HIVE-FORM-FIELD="firstName" type="text" value={nlFirst} onChange={e => setNlFirst(e.target.value)} required placeholder="First" autoComplete="given-name" />
                 </div>
                 <div className="nl-field">
                   <label className="nl-label">Last Name<span className="nl-req">*</span></label>
-                  <input className="nl-input" type="text" value={nlLast} onChange={e => setNlLast(e.target.value)} required placeholder="Last" />
+                  <input className="nl-input" data-HIVE-FORM-FIELD="lastName" type="text" value={nlLast} onChange={e => setNlLast(e.target.value)} required placeholder="Last" autoComplete="family-name" />
                 </div>
               </div>
               <div className="nl-field">
                 <label className="nl-label">Email<span className="nl-req">*</span></label>
-                <input className="nl-input" type="email" value={nlEmail} onChange={e => setNlEmail(e.target.value)} required placeholder="you@example.com" />
+                <input className="nl-input" data-HIVE-FORM-FIELD="email" type="email" value={nlEmail} onChange={e => setNlEmail(e.target.value)} required placeholder="you@example.com" autoComplete="email" />
               </div>
               <p className="nl-consent">Sign up for news and updates</p>
-              <button className="nl-btn" type="submit" disabled={nlStatus === 'loading'}>
+              <button className="nl-btn" data-HIVE-FORM-FIELD="submitButton" type="submit" disabled={nlStatus === 'loading'}>
                 {nlStatus === 'loading' ? 'Subscribing...' : 'Submit'}
               </button>
             </form>
