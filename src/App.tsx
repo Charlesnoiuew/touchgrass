@@ -240,8 +240,8 @@ export default function App() {
             <div className="nl-success">You're in! We'll keep you posted.</div>
           ) : (
             <form className="nl-form hive-signup-form" onSubmit={handleNewsletter}>
-              <input data-HIVE-FORM-FIELD="swid" type="hidden" value="14705" />
-              <input data-HIVE-FORM-FIELD="addToSegment" type="hidden" value="Newsletter - Homepage" />
+              <input data-HIVE-FORM-FIELD="swid" type="hidden" value="14709" />
+              <input data-HIVE-FORM-FIELD="addToSegment" type="hidden" value="Signup Form - Homepage" />
               <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
                 <input type="text" data-HIVE-FORM-FIELD="areUReal" tabIndex={-1} defaultValue="" />
               </div>
