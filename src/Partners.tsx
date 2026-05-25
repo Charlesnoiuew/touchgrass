@@ -50,10 +50,15 @@ export default function Partners() {
           partnership_interest: interest,
         }),
       });
-      if (!res.ok) throw new Error('Submission failed');
+      if (!res.ok) {
+        let errMsg = `HTTP ${res.status}`;
+        try { const j = await res.json(); errMsg += ': ' + JSON.stringify(j); } catch {}
+        throw new Error(errMsg);
+      }
       setSubmitted(true);
-    } catch {
-      setSubmitError('Something went wrong. Please try again.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setSubmitError('Error: ' + msg);
     } finally {
       setSubmitting(false);
     }
