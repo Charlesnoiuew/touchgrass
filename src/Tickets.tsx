@@ -247,7 +247,17 @@ export default function Tickets() {
                     <p className="tcard-locker-body">{t.locker.body}</p>
                   </>
                 )}
-                <a href={t.url ?? TICKET_URL} target="_blank" rel="noopener noreferrer" className="tcard-btn">{t.cta}</a>
+                <a
+                  href={t.url ?? TICKET_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tcard-btn"
+                  onClick={() => {
+                    if ((t.id === 'ga' || t.id === 'vip') && typeof (window as any).fbq === 'function') {
+                      (window as any).fbq('track', 'AddToCart', { content_category: 'Festival Ticket' });
+                    }
+                  }}
+                >{t.cta}</a>
               </div>
             ))}
           </div>
