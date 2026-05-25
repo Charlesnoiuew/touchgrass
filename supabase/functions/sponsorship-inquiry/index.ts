@@ -59,7 +59,7 @@ Deno.serve(async (req: Request) => {
     if (!emailRes.ok) {
       const err = await emailRes.text();
       console.error("Resend error:", err);
-      return new Response(JSON.stringify({ error: "Failed to send email" }), {
+      return new Response(JSON.stringify({ error: "Failed to send email", detail: err }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
