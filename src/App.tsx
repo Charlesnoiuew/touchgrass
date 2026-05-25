@@ -3,6 +3,7 @@ import logo from './assets/logo.png';
 import heroLogo from './assets/TGMF.png';
 import flyer from './assets/flyer.jpg';
 import Footer from './Footer';
+import HivePopup from './HivePopup';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -274,6 +275,7 @@ export default function App() {
       </section>
 
       <Footer />
+      <HivePopup />
     </>
   );
 }
