@@ -38,9 +38,9 @@ export default function Partners() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      const res = await fetch('/api/sponsorship-inquiry', {
+      const res = await fetch('https://pvwugnchrstvseueesoh.supabase.co/functions/v1/sponsorship-inquiry', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2d3VnbmNocnN0dnNldWVlc29oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0Njg5MzAsImV4cCI6MjA5NTA0NDkzMH0.vo5ccmwYEsqltxwKzCnofHOjdliW916rfKoCJwCcbkg` },
         body: JSON.stringify({
           first_name: firstName,
           last_name: lastName,
