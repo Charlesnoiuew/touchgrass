@@ -39,13 +39,11 @@ export default function Partners() {
     setSubmitError('');
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/sponsorship-inquiry`,
+        'https://pvwugnchrstvseueesoh.supabase.co/functions/v1/sponsorship-inquiry',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-            'Apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
           },
           body: JSON.stringify({
             first_name: firstName,

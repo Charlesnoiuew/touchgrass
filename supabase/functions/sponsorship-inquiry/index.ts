@@ -1,5 +1,4 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
-import { createClient } from "npm:@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -21,27 +20,6 @@ Deno.serve(async (req: Request) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-
-    // Save to database
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-    );
-
-    const { error: dbError } = await supabase
-      .from("sponsorship_inquiries")
-      .insert({ first_name, last_name, company: company || "", email, phone: phone || "", partnership_interest });
-
-    if (dbError) {
-      console.error("DB error:", dbError);
-      return new Response(JSON.stringify({ error: "Failed to save inquiry" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    // Send email via Resend
-    const resendKey = Deno.env.get("RESEND_API_KEY") || "re_DJ5rE22W_8ZRsaEqmUv6mWRLGYkVxzY2U";
 
     const htmlBody = `
 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #fff;">
@@ -65,13 +43,13 @@ Deno.serve(async (req: Request) => {
     const emailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${resendKey}`,
+        "Authorization": `Bearer re_famyLfmn_QFmqAhh5koE9NoVRzvCWXMSf`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Touch Grass Music Fest <hello@touchgrassmusicfest.com>",
+        from: "Touch Grass Music Fest <partnerships@touchgrassmusicfest.com>",
         to: ["partnerships@touchgrassmusicfest.com"],
-        reply_to: email.includes('@') ? email : undefined,
+        reply_to: email,
         subject: `Sponsorship Inquiry — ${first_name} ${last_name}${company ? ` (${company})` : ""}`,
         text: textBody,
         html: htmlBody,
@@ -81,6 +59,10 @@ Deno.serve(async (req: Request) => {
     if (!emailRes.ok) {
       const err = await emailRes.text();
       console.error("Resend error:", err);
+      return new Response(JSON.stringify({ error: "Failed to send email" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
     }
 
     return new Response(JSON.stringify({ success: true }), {
