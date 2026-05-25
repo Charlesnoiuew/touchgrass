@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import logo from './assets/logo.png';
 import Footer from './Footer';
 
@@ -38,23 +39,19 @@ export default function Partners() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      const res = await fetch('/api/sponsorship-inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        {
           first_name: firstName,
           last_name: lastName,
-          company,
+          company: company || '—',
           email,
-          phone,
+          phone: phone || '—',
           partnership_interest: interest,
-        }),
-      });
-      if (!res.ok) {
-        let errMsg = `HTTP ${res.status}`;
-        try { const j = await res.json(); errMsg += ': ' + JSON.stringify(j); } catch {}
-        throw new Error(errMsg);
-      }
+        },
+        'YOUR_PUBLIC_KEY'
+      );
       setSubmitted(true);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
