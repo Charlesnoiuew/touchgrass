@@ -54,24 +54,14 @@ export default function App() {
     return () => io.disconnect();
   }, []);
 
-  async function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
+  function handleNewsletter(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (nlStatus === 'loading') return;
     setNlStatus('loading');
-    try {
-      const { createClient } = await import('@supabase/supabase-js');
-      const supabase = createClient(
-        import.meta.env.VITE_SUPABASE_URL,
-        import.meta.env.VITE_SUPABASE_ANON_KEY
-      );
-      await supabase.from('newsletter_subscribers').insert({
-        email: nlEmail,
-        first_name: nlFirst,
-        last_name: nlLast,
-      });
-    } catch (_) { /* still show success */ }
-    setNlStatus('success');
-    setNlFirst(''); setNlLast(''); setNlEmail('');
+    (window as any).HIVE_SDK?.('submitSignupForm', e.currentTarget, () => {
+      setNlStatus('success');
+      setNlFirst(''); setNlLast(''); setNlEmail('');
+    });
   }
 
   return (
@@ -249,26 +239,35 @@ export default function App() {
           {nlStatus === 'success' ? (
             <div className="nl-success">You're in! We'll keep you posted.</div>
           ) : (
-            <form className="nl-form" onSubmit={handleNewsletter}>
+            <form className="nl-form hive-signup-form" onSubmit={handleNewsletter}>
+              <input data-HIVE-FORM-FIELD="swid" type="hidden" value="14709" />
+              <input data-HIVE-FORM-FIELD="addToSegment" type="hidden" value="Signup Form - Homepage" />
+              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                <input type="text" data-HIVE-FORM-FIELD="areUReal" tabIndex={-1} defaultValue="" />
+              </div>
               <p className="nl-form-label">Name</p>
               <div className="nl-name-row">
                 <div className="nl-field">
                   <label className="nl-label">First Name<span className="nl-req">*</span></label>
-                  <input className="nl-input" type="text" value={nlFirst} onChange={e => setNlFirst(e.target.value)} required placeholder="First" autoComplete="given-name" />
+                  <input className="nl-input" data-HIVE-FORM-FIELD="firstName" id="_HIVE-firstName-14709" name="fname" type="text" value={nlFirst} onChange={e => setNlFirst(e.target.value)} placeholder="First" autoComplete="given-name" />
                 </div>
                 <div className="nl-field">
                   <label className="nl-label">Last Name<span className="nl-req">*</span></label>
-                  <input className="nl-input" type="text" value={nlLast} onChange={e => setNlLast(e.target.value)} required placeholder="Last" autoComplete="family-name" />
+                  <input className="nl-input" data-HIVE-FORM-FIELD="lastName" id="_HIVE-lastName-14709" name="lname" type="text" value={nlLast} onChange={e => setNlLast(e.target.value)} placeholder="Last" autoComplete="family-name" />
                 </div>
               </div>
               <div className="nl-field">
                 <label className="nl-label">Email<span className="nl-req">*</span></label>
-                <input className="nl-input" type="email" value={nlEmail} onChange={e => setNlEmail(e.target.value)} required placeholder="you@example.com" autoComplete="email" />
+                <input className="nl-input" data-HIVE-FORM-FIELD="email" id="_HIVE-email-14709" name="email" type="email" value={nlEmail} onChange={e => setNlEmail(e.target.value)} required placeholder="you@example.com" autoComplete="email" />
               </div>
               <p className="nl-consent">Sign up for news and updates</p>
-              <button className="nl-btn" type="submit" disabled={nlStatus === 'loading'}>
+              <button className="nl-btn" data-HIVE-FORM-FIELD="submitButton" type="submit" disabled={nlStatus === 'loading'}>
                 {nlStatus === 'loading' ? 'Subscribing...' : 'Submit'}
               </button>
+              <div data-HIVE-FORM-FIELD="successMessage" style={{ display: 'none' }}>
+                <h2>Thanks for joining our mailing list</h2>
+                <p>You've been successfully subscribed - thanks!</p>
+              </div>
             </form>
           )}
         </div>
