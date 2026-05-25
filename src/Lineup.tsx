@@ -71,8 +71,16 @@ export default function Lineup() {
     if (!lightbox) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') { setLightbox(null); return; }
-      if (e.key === 'ArrowRight') goNext();
-      if (e.key === 'ArrowLeft')  goPrev();
+      if (e.key === 'ArrowRight') {
+        const next = (lightboxIdx + 1) % artists.length;
+        setLightboxIdx(next);
+        setLightbox(artists[next]);
+      }
+      if (e.key === 'ArrowLeft') {
+        const prev = (lightboxIdx - 1 + artists.length) % artists.length;
+        setLightboxIdx(prev);
+        setLightbox(artists[prev]);
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);

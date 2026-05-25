@@ -70,7 +70,7 @@ export default function App() {
           segment: 'Newsletter - Homepage',
         }),
       });
-    } catch (_) {}
+    } catch (e) { void e; }
     setNlStatus('success');
     setNlFirst(''); setNlLast(''); setNlEmail('');
   }
