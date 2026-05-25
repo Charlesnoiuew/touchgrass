@@ -1,4 +1,10 @@
 import { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 import logo from './assets/logo.png';
 import Footer from './Footer';
 
@@ -14,6 +20,8 @@ export default function Partners() {
   const [phone, setPhone] = useState('');
   const [interest, setInterest] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -31,9 +39,38 @@ export default function Partners() {
     return () => clearTimeout(t);
   }, []);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const res = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/sponsorship-inquiry`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session?.access_token ?? import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+          },
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            company,
+            email,
+            phone,
+            partnership_interest: interest,
+          }),
+        }
+      );
+      if (!res.ok) throw new Error('Submission failed');
+      setSubmitted(true);
+    } catch {
+      setSubmitError('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -174,8 +211,9 @@ export default function Partners() {
                   />
                 </div>
 
-                <button type="submit" className="pt-submit">
-                  Submit Inquiry
+                {submitError && <p style={{ color: '#f87171', fontSize: '14px', marginTop: '-4px' }}>{submitError}</p>}
+                <button type="submit" className="pt-submit" disabled={submitting}>
+                  {submitting ? 'Sending...' : 'Submit Inquiry'}
                 </button>
               </form>
             </>
