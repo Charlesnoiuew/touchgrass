@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
 import logo from './assets/logo.png';
 import Footer from './Footer';
 
@@ -39,19 +38,23 @@ export default function Partners() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
+      const res = await fetch('https://pvwugnchrstvseueesoh.supabase.co/functions/v1/sponsorship-inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2d3VnbmNocnN0dnNldWVlc29oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0Njg5MzAsImV4cCI6MjA5NTA0NDkzMH0.vo5ccmwYEsqltxwKzCnofHOjdliW916rfKoCJwCcbkg` },
+        body: JSON.stringify({
           first_name: firstName,
           last_name: lastName,
-          company: company || '—',
+          company,
           email,
-          phone: phone || '—',
+          phone,
           partnership_interest: interest,
-        },
-        'YOUR_PUBLIC_KEY'
-      );
+        }),
+      });
+      if (!res.ok) {
+        let errMsg = `HTTP ${res.status}`;
+        try { const j = await res.json(); errMsg += ': ' + JSON.stringify(j); } catch {}
+        throw new Error(errMsg);
+      }
       setSubmitted(true);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : String(err);
