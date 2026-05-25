@@ -9,19 +9,22 @@ import Tickets from './Tickets';
 import FAQ from './FAQ';
 import ADA from './ADA';
 import Partners from './Partners';
+import ErrorBoundary from './ErrorBoundary';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/lineup" element={<Lineup />} />
-        <Route path="/tickets" element={<Tickets />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/ada" element={<ADA />} />
-        <Route path="/partners" element={<Partners />} />
-      </Routes>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/lineup" element={<Lineup />} />
+          <Route path="/tickets" element={<Tickets />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/ada" element={<ADA />} />
+          <Route path="/partners" element={<Partners />} />
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   </StrictMode>
 );

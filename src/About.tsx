@@ -163,7 +163,7 @@ export default function About() {
               </div>
             ) : (
               <div className="mp-initials-banner">
-                <span className="mp-initials-text">{activeMember.name.split(' ').map((w: string) => w[0]).join('').slice(0,2)}</span>
+                <span className="mp-initials-text">{activeMember.name.split(' ').map((w: string) => w[0] ?? '').join('').slice(0,2)}</span>
               </div>
             )}
             <div className="mp-body">
