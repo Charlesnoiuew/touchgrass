@@ -38,23 +38,18 @@ export default function Partners() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      const res = await fetch(
-        'https://pvwugnchrstvseueesoh.supabase.co/functions/v1/sponsorship-inquiry',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
-            company,
-            email,
-            phone,
-            partnership_interest: interest,
-          }),
-        }
-      );
+      const res = await fetch('/api/sponsorship-inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          company,
+          email,
+          phone,
+          partnership_interest: interest,
+        }),
+      });
       if (!res.ok) throw new Error('Submission failed');
       setSubmitted(true);
     } catch {
