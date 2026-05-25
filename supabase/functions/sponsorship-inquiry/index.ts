@@ -59,7 +59,7 @@ Deno.serve(async (req: Request) => {
     if (!emailRes.ok) {
       const err = await emailRes.text();
       console.error("Resend error:", err);
-      return new Response(JSON.stringify({ error: "Failed to send email", detail: err }), {
+      return new Response(JSON.stringify({ error: "Failed to send email" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -71,7 +71,7 @@ Deno.serve(async (req: Request) => {
     });
   } catch (err) {
     console.error("Error:", err);
-    return new Response(JSON.stringify({ error: "Internal server error", detail: String(err) }), {
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
