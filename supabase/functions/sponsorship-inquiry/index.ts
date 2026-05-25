@@ -71,7 +71,7 @@ Deno.serve(async (req: Request) => {
       body: JSON.stringify({
         from: "Touch Grass Music Fest <hello@touchgrassmusicfest.com>",
         to: ["partnerships@touchgrassmusicfest.com"],
-        reply_to: email,
+        reply_to: email.includes('@') ? email : undefined,
         subject: `Sponsorship Inquiry — ${first_name} ${last_name}${company ? ` (${company})` : ""}`,
         text: textBody,
         html: htmlBody,
