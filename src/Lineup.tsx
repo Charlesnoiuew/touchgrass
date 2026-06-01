@@ -6,7 +6,7 @@ import partynextdoor from './assets/partynextdoor.webp';
 import jid            from './assets/jid.webp';
 import amine          from './assets/amine.webp';
 import flomilli       from './assets/flomilli.webp';
-import monaleo        from './assets/monaleo.webp';
+import monaleo        from './assets/image copy copy copy copy copy copy copy copy copy copy copy.png';
 import ddg            from './assets/ddg.webp';
 import cochise        from './assets/cochise.webp';
 import chrispatrick   from './assets/chrispatrick.webp';
