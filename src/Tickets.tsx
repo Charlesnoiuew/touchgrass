@@ -24,11 +24,11 @@ const tiers = [
   },
   {
     id: 'vip',
-    badge: 'Early Bird!',
+    badge: null,
     badgeAlt: false,
     tier: 'VIP',
     tierSm: false,
-    price: '$349.99',
+    price: '$379',
     featured: true,
     perks: [
       'Dedicated Fast Entry Lanes',
@@ -44,8 +44,8 @@ const tiers = [
   },
   {
     id: 'locker',
-    badge: 'Early Bird!',
-    badgeAlt: true,
+    badge: null,
+    badgeAlt: false,
     tier: 'Locker Rental',
     tierSm: true,
     price: '$14.99',

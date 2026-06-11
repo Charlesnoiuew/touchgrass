@@ -196,13 +196,11 @@ export default function App() {
               <a href="https://link.dice.fm/Touch_Grass-GA" target="_blank" rel="noopener noreferrer" className="tcard-btn">Buy GA Tickets</a>
             </div>
             <div className="tcard tcard-featured reveal reveal-d2">
-              <div className="tcard-badge">Early Bird!</div>
-              <div className="tcard-top"><div className="tcard-tier">VIP</div><div className="tcard-price">$349.99<span className="tcard-plus">+</span></div></div>
+              <div className="tcard-top"><div className="tcard-tier">VIP</div><div className="tcard-price">$379<span className="tcard-plus">+</span></div></div>
               <ul className="tcard-perks"><li>Dedicated Fast Entry Lanes</li><li>Access to VIP Lounge</li><li>Front Row Viewing</li><li>VIP Bars</li><li>Designated Lockers</li><li>Merch Voucher</li></ul>
               <a href="https://link.dice.fm/Touch_Grass-VIP" target="_blank" rel="noopener noreferrer" className="tcard-btn">Buy VIP Tickets</a>
             </div>
             <div className="tcard reveal reveal-d3">
-              <div className="tcard-badge tcard-badge-alt">Early Bird!</div>
               <div className="tcard-top"><div className="tcard-tier tcard-tier-sm">Locker<br/>Rental</div><div className="tcard-price">$14.99<span className="tcard-plus">+</span></div></div>
               <p className="tcard-locker-note"><strong>Two (2) Locker Locations</strong><br/>GA Lockers &nbsp;·&nbsp; VIP Lockers</p>
               <p className="tcard-locker-body">Why stress about losing your ID, dancing with a full backpack, or carrying around new merch? Keep your items safe and secure throughout the weekend and your phone fully charged.</p>
