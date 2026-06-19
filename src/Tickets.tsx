@@ -9,8 +9,8 @@ const tiers = [
     id: 'ga',
     tier: 'GA',
     tierSm: false,
-    price: '$169.99',
-    afterpay: '*Pay in 4 interest-free payments of $42.50 with Afterpay',
+    price: '$209',
+    afterpay: '*Pay in 4 interest-free payments of $52.22 with Afterpay',
     featured: false,
     perks: [
       'Entry to the Hottest New Festival',

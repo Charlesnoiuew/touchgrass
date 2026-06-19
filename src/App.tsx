@@ -192,8 +192,8 @@ export default function App() {
           <div className="tk-cards-grid">
             <div className="tcard reveal reveal-d1">
               <div className="tcard-top"><div className="tcard-tier">GA</div></div>
-              <div className="tcard-price-row"><div className="tcard-price">$169.99</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
-              <p className="tcard-afterpay">*Pay in 4 interest-free payments of $42.50 with Afterpay</p>
+              <div className="tcard-price-row"><div className="tcard-price">$209</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
+              <p className="tcard-afterpay">*Pay in 4 interest-free payments of $52.22 with Afterpay</p>
               <ul className="tcard-perks"><li>Entry to the Hottest New Festival</li><li>Local Food Vendors</li><li>Main Merch Store</li></ul>
               <a href="https://link.dice.fm/Touch_Grass-GA" target="_blank" rel="noopener noreferrer" className="tcard-btn">Buy GA Tickets</a>
             </div>
