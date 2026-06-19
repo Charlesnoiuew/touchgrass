@@ -199,8 +199,8 @@ export default function App() {
             </div>
             <div className="tcard tcard-featured reveal reveal-d2">
               <div className="tcard-top"><div className="tcard-tier">VIP</div></div>
-              <div className="tcard-price-row"><div className="tcard-price">$379</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
-              <p className="tcard-afterpay">*Pay in 4 interest-free payments of $94.75, or over 6-12 months with Afterpay</p>
+              <div className="tcard-price-row"><div className="tcard-price">$467</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
+              <p className="tcard-afterpay">*Pay in 4 interest-free payments of $116.71, or over 6-12 months with Afterpay</p>
               <ul className="tcard-perks"><li>Dedicated Fast Entry Lanes</li><li>Access to VIP Lounge</li><li>Front Row Viewing</li><li>VIP Bars</li><li>Designated Lockers</li><li>Merch Voucher</li></ul>
               <a href="https://link.dice.fm/Touch_Grass-VIP" target="_blank" rel="noopener noreferrer" className="tcard-btn">Buy VIP Tickets</a>
             </div>

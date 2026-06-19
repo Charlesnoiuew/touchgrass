@@ -25,8 +25,8 @@ const tiers = [
     id: 'vip',
     tier: 'VIP',
     tierSm: false,
-    price: '$379',
-    afterpay: '*Pay in 4 interest-free payments of $94.75, or over 6-12 months with Afterpay',
+    price: '$467',
+    afterpay: '*Pay in 4 interest-free payments of $116.71, or over 6-12 months with Afterpay',
     featured: true,
     perks: [
       'Dedicated Fast Entry Lanes',
