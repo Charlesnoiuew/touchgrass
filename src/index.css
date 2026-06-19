@@ -120,24 +120,24 @@ a   { text-decoration: none; color: inherit; }
 .tickets-headline { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(3rem,7vw,5.5rem); text-transform:uppercase; line-height:.9; letter-spacing:-.03em; color:#000; margin-bottom:14px; }
 .tickets-sub { font-size:.64rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:rgba(0,0,0,.48); }
 .ticket-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start; }
-.tcard { background:#fff; color:#000; border-radius:16px; overflow:hidden; border:2px solid #000; display:flex; flex-direction:column; padding:32px 28px 28px; position:relative; transition:transform .2s,box-shadow .2s; }
-.tcard:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,.25); }
-.tcard-featured { border-color:var(--lime); box-shadow:0 0 0 3px #000,0 0 0 5px var(--lime); }
-.tcard-featured:hover { transform:translateY(-8px); box-shadow:0 0 0 3px #000,0 0 0 5px var(--lime),0 24px 64px rgba(0,0,0,.3); }
-.tcard-badge { display:inline-block; align-self:flex-start; background:var(--lime); color:#000; font-size:.52rem; font-weight:900; letter-spacing:.2em; text-transform:uppercase; padding:5px 12px; border-radius:100px; margin-bottom:16px; border:1.5px solid #000; }
-.tcard-badge-alt { background:#000; color:var(--lime); }
-.tcard-top { margin-bottom:20px; }
-.tcard-tier { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(2.6rem,5vw,3.4rem); text-transform:uppercase; line-height:1; color:var(--lime); letter-spacing:-.02em; -webkit-text-stroke:1.5px #000; text-shadow:2px 2px 0 #000; }
-.tcard-tier-sm { font-size:clamp(2rem,3.5vw,2.6rem); line-height:1.05; }
-.tcard-price { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(2rem,4vw,2.8rem); color:#000; line-height:1; margin-top:4px; }
-.tcard-plus { font-size:.6em; vertical-align:super; }
-.tcard-perks { list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:10px; flex:1; }
-.tcard-perks li { font-size:.82rem; color:#111; padding-left:18px; position:relative; line-height:1.4; }
-.tcard-perks li::before { content:'•'; position:absolute; left:0; color:var(--lime); font-size:1rem; -webkit-text-stroke:.5px #000; }
-.tcard-locker-note { font-size:.78rem; color:#111; margin-bottom:12px; line-height:1.6; }
+.tcard { background:#fff; color:#000; border-radius:18px; border:2.5px solid #000; display:flex; flex-direction:column; padding:28px 24px 24px; position:relative; transition:transform .2s,box-shadow .2s; }
+.tcard:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(0,0,0,.3); }
+.tcard-featured { border-color:var(--lime); box-shadow:0 0 0 3px var(--lime); }
+.tcard-featured:hover { transform:translateY(-7px); box-shadow:0 0 0 3px var(--lime),0 20px 56px rgba(0,0,0,.35); }
+.tcard-top { margin-bottom:6px; }
+.tcard-tier { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(3rem,6vw,4rem); text-transform:uppercase; line-height:1; color:var(--lime); letter-spacing:-.01em; -webkit-text-stroke:2px #000; paint-order:stroke fill; }
+.tcard-tier-sm { font-size:clamp(2.2rem,4vw,3rem); line-height:1.05; }
+.tcard-price-row { display:flex; align-items:baseline; gap:10px; margin-bottom:4px; }
+.tcard-price { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(2rem,4vw,2.6rem); color:#000; line-height:1; }
+.tcard-price-label { font-size:.52rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#000; }
+.tcard-afterpay { font-size:.7rem; font-weight:700; color:#111; margin-bottom:18px; line-height:1.4; }
+.tcard-perks { list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:12px; flex:1; }
+.tcard-perks li { font-size:.85rem; color:#111; padding-left:22px; position:relative; line-height:1.4; }
+.tcard-perks li::before { content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:8px; height:8px; border-radius:50%; background:var(--lime); border:1.5px solid #000; }
+.tcard-locker-note { font-size:.8rem; color:#111; margin-bottom:10px; line-height:1.6; }
 .tcard-locker-note strong { font-weight:800; }
-.tcard-locker-body { font-size:.75rem; color:rgba(0,0,0,.55); line-height:1.65; margin-bottom:28px; flex:1; }
-.tcard-btn { display:block; text-align:center; background:var(--lime); color:#000; font-weight:900; font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; padding:15px; border-radius:8px; border:2px solid #000; transition:background .15s,transform .12s; margin-top:auto; }
+.tcard-locker-body { font-size:.76rem; color:rgba(0,0,0,.55); line-height:1.65; margin-bottom:24px; flex:1; }
+.tcard-btn { display:block; text-align:center; background:var(--lime); color:#000; font-weight:900; font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; padding:17px 20px; border-radius:10px; border:2px solid #000; transition:background .15s,transform .12s; margin-top:auto; }
 .tcard-btn:hover { background:#000; color:var(--lime); }
 .tcard-btn:active { transform:scale(.97); }
 
@@ -465,7 +465,7 @@ a   { text-decoration: none; color: inherit; }
   .tk-cards-grid { grid-template-columns:1fr; max-width:480px; margin:0 auto; gap:16px; }
   .tickets-section { padding:64px 18px 72px; } .tickets-header { margin-bottom:40px; }
   .ticket-cards-grid { grid-template-columns:1fr; max-width:100%; gap:16px; }
-  .tcard { padding:24px 20px 20px; }
+  .tcard { padding:22px 18px 18px; }
   .vibe-section { padding:64px 18px; }
   .vibe-inner { text-align:center; }
   .nl-section { padding:64px 18px; }
@@ -509,7 +509,7 @@ a   { text-decoration: none; color: inherit; }
   .hero-btns .btn-lime, .hero-btns .btn-ghost { flex:none; width:100%; }
   .lineup-foot { flex-direction:column; align-items:center; gap:16px; }
   .btn-lime-solid { width:100%; text-align:center; }
-  .tcard-tier { font-size:clamp(2.2rem,8vw,3rem); } .tcard-price { font-size:clamp(1.6rem,6vw,2.4rem); }
+  .tcard-tier { font-size:clamp(2.4rem,9vw,3.4rem); } .tcard-price { font-size:clamp(1.8rem,7vw,2.4rem); }
   .lp-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
 }
 

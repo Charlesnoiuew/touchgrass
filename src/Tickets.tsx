@@ -7,11 +7,10 @@ const TICKET_URL = 'https://www.touchgrassmusicfest.com';
 const tiers = [
   {
     id: 'ga',
-    badge: null,
-    badgeAlt: false,
     tier: 'GA',
     tierSm: false,
     price: '$169.99',
+    afterpay: '*Pay in 4 interest-free payments of $42.50 with Afterpay',
     featured: false,
     perks: [
       'Entry to the Hottest New Festival',
@@ -24,11 +23,10 @@ const tiers = [
   },
   {
     id: 'vip',
-    badge: null,
-    badgeAlt: false,
     tier: 'VIP',
     tierSm: false,
     price: '$379',
+    afterpay: '*Pay in 4 interest-free payments of $94.75, or over 6-12 months with Afterpay',
     featured: true,
     perks: [
       'Dedicated Fast Entry Lanes',
@@ -44,11 +42,10 @@ const tiers = [
   },
   {
     id: 'locker',
-    badge: null,
-    badgeAlt: false,
     tier: 'Locker Rental',
     tierSm: true,
     price: '$14.99',
+    afterpay: null,
     featured: false,
     perks: null,
     locker: {
@@ -223,19 +220,18 @@ export default function Tickets() {
                 key={t.id}
                 className={`tcard${t.featured ? ' tcard-featured' : ''} reveal reveal-d${i + 1}`}
               >
-                {t.badge && (
-                  <div className={`tcard-badge${t.badgeAlt ? ' tcard-badge-alt' : ''}`}>{t.badge}</div>
-                )}
                 <div className="tcard-top">
                   <div className={`tcard-tier${t.tierSm ? ' tcard-tier-sm' : ''}`}>
                     {t.tier.includes(' ') ? (
-                      <>
-                        {t.tier.split(' ')[0]}<br/>{t.tier.split(' ').slice(1).join(' ')}
-                      </>
+                      <>{t.tier.split(' ')[0]}<br/>{t.tier.split(' ').slice(1).join(' ')}</>
                     ) : t.tier}
                   </div>
-                  <div className="tcard-price">{t.price}<span className="tcard-plus">+</span></div>
                 </div>
+                <div className="tcard-price-row">
+                  <div className="tcard-price">{t.price}</div>
+                  <div className="tcard-price-label">Taxes &amp; fees included</div>
+                </div>
+                {t.afterpay && <p className="tcard-afterpay">{t.afterpay}</p>}
                 {t.perks && (
                   <ul className="tcard-perks">
                     {t.perks.map(p => <li key={p}>{p}</li>)}

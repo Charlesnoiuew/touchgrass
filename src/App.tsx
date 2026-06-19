@@ -191,17 +191,22 @@ export default function App() {
           </div>
           <div className="tk-cards-grid">
             <div className="tcard reveal reveal-d1">
-              <div className="tcard-top"><div className="tcard-tier">GA</div><div className="tcard-price">$169.99<span className="tcard-plus">+</span></div></div>
+              <div className="tcard-top"><div className="tcard-tier">GA</div></div>
+              <div className="tcard-price-row"><div className="tcard-price">$169.99</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
+              <p className="tcard-afterpay">*Pay in 4 interest-free payments of $42.50 with Afterpay</p>
               <ul className="tcard-perks"><li>Entry to the Hottest New Festival</li><li>Local Food Vendors</li><li>Main Merch Store</li></ul>
               <a href="https://link.dice.fm/Touch_Grass-GA" target="_blank" rel="noopener noreferrer" className="tcard-btn">Buy GA Tickets</a>
             </div>
             <div className="tcard tcard-featured reveal reveal-d2">
-              <div className="tcard-top"><div className="tcard-tier">VIP</div><div className="tcard-price">$379<span className="tcard-plus">+</span></div></div>
+              <div className="tcard-top"><div className="tcard-tier">VIP</div></div>
+              <div className="tcard-price-row"><div className="tcard-price">$379</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
+              <p className="tcard-afterpay">*Pay in 4 interest-free payments of $94.75, or over 6-12 months with Afterpay</p>
               <ul className="tcard-perks"><li>Dedicated Fast Entry Lanes</li><li>Access to VIP Lounge</li><li>Front Row Viewing</li><li>VIP Bars</li><li>Designated Lockers</li><li>Merch Voucher</li></ul>
               <a href="https://link.dice.fm/Touch_Grass-VIP" target="_blank" rel="noopener noreferrer" className="tcard-btn">Buy VIP Tickets</a>
             </div>
             <div className="tcard reveal reveal-d3">
-              <div className="tcard-top"><div className="tcard-tier tcard-tier-sm">Locker<br/>Rental</div><div className="tcard-price">$14.99<span className="tcard-plus">+</span></div></div>
+              <div className="tcard-top"><div className="tcard-tier tcard-tier-sm">Locker<br/>Rental</div></div>
+              <div className="tcard-price-row"><div className="tcard-price">$14.99</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
               <p className="tcard-locker-note"><strong>Two (2) Locker Locations</strong><br/>GA Lockers &nbsp;·&nbsp; VIP Lockers</p>
               <p className="tcard-locker-body">Why stress about losing your ID, dancing with a full backpack, or carrying around new merch? Keep your items safe and secure throughout the weekend and your phone fully charged.</p>
               <a href="https://secure.mobilecharginglockers.com/event/touch-grass-music-festival-2026" target="_blank" rel="noopener noreferrer" className="tcard-btn">Secure Locker</a>
