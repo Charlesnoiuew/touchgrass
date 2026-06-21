@@ -229,7 +229,7 @@ export default function Tickets() {
                 </div>
                 <div className="tcard-price-row">
                   <div className="tcard-price">{t.price}</div>
-                  <div className="tcard-price-label">Taxes &amp; fees included</div>
+                  {!t.locker && <div className="tcard-price-label">Taxes &amp; fees included</div>}
                 </div>
                 {t.afterpay && <p className="tcard-afterpay">{t.afterpay}</p>}
                 {t.perks && (

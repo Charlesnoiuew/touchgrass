@@ -206,7 +206,7 @@ export default function App() {
             </div>
             <div className="tcard reveal reveal-d3">
               <div className="tcard-top"><div className="tcard-tier tcard-tier-sm">Locker<br/>Rental</div></div>
-              <div className="tcard-price-row"><div className="tcard-price">$14.99</div><div className="tcard-price-label">Taxes &amp; fees included</div></div>
+              <div className="tcard-price-row"><div className="tcard-price">$14.99</div></div>
               <p className="tcard-locker-note"><strong>Two (2) Locker Locations</strong><br/>GA Lockers &nbsp;·&nbsp; VIP Lockers</p>
               <p className="tcard-locker-body">Why stress about losing your ID, dancing with a full backpack, or carrying around new merch? Keep your items safe and secure throughout the weekend and your phone fully charged.</p>
               <a href="https://secure.mobilecharginglockers.com/event/touch-grass-music-festival-2026" target="_blank" rel="noopener noreferrer" className="tcard-btn">Secure Locker</a>
