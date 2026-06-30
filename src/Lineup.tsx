@@ -22,6 +22,7 @@ import smb            from './assets/smb.webp';
 import cherele        from './assets/cherele.webp';
 import slayr          from './assets/9AAD3757-B5FB-41EC-B530-322197C9E972.jpg';
 import trim           from './assets/2955EAA5-B395-4A7C-85AF-7491189DF5EE.jpg';
+import sosocamo       from './assets/image copy copy copy copy copy copy copy copy copy copy copy copy copy.png';
 
 type Tier = 'headliner' | 'main' | 'mid' | 'supporting' | 'special';
 
@@ -49,6 +50,7 @@ const artists: Artist[] = [
   { name: 'CHERELE',       img: cherele,          tier: 'supporting' },
   { name: 'SLAYR',         img: slayr,            tier: 'supporting' },
   { name: 'TRIM',          img: trim,             tier: 'supporting' },
+  { name: 'SOSOCAMO',      img: sosocamo,         tier: 'supporting' },
   { name: 'TRAP SUSHI',    img: trapsushi,        tier: 'special' },
   { name: 'GIRLS LOVE KARAOKE', img: girlslovekaraoke, tier: 'special' },
   { name: 'BAE BRIGADE BATTLE', img: smb,         tier: 'special' },

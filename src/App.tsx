@@ -157,7 +157,7 @@ export default function App() {
               <div className="tier-2 reveal reveal-d2">JID<span className="dot-1">·</span>AMINÉ<span className="dot-1">·</span>MONALEO<span className="dot-1">·</span>FLO MILLI</div>
               <div className="tier-3 reveal reveal-d3">TIACORINE<span className="dot-2">·</span>DDG<span className="dot-2">·</span>COCHISE<span className="dot-2">·</span>CHRIS PATRICK</div>
               <div className="tier-4 reveal reveal-d3">ARMANI WHITE<span className="dot-3">·</span>JENEVIEVE<span className="dot-3">·</span>WYNNE<span className="dot-3">·</span>BIZZY CROOK</div>
-              <div className="tier-5 reveal reveal-d4">JOVANIE<span className="dot-3">·</span>LIZZY ASHLEIGH<span className="dot-3">·</span>TRAP SUSHI<span className="dot-3">·</span>CHERELE<span className="dot-3">·</span>SLAYR<span className="dot-3">·</span>TRIM</div>
+              <div className="tier-5 reveal reveal-d4">JOVANIE<span className="dot-3">·</span>LIZZY ASHLEIGH<span className="dot-3">·</span>TRAP SUSHI<span className="dot-3">·</span>CHERELE<span className="dot-3">·</span>SLAYR<span className="dot-3">·</span>TRIM<span className="dot-3">·</span>SOSOCAMO</div>
               <div className="specials reveal reveal-d4">
                 <p style={{ color: '#ffffff' }}>Bae Brigade Battle hosted by Storymode Bae &amp; Girls Love Karaoke</p>
                 <p style={{ color: '#ffffff' }}>Sets by DJ Peewee &amp; JYNN + Special Guests</p>
