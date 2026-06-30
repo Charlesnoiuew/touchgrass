@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import logo from './assets/logo.png';
 import heroLogo from './assets/TGMF.png';
-import flyer from './assets/flyer.jpg';
+import flyer from './assets/088A0666-351E-4CE1-B120-813388F1875A.jpg';
 import Footer from './Footer';
 import HivePopup from './HivePopup';
 
